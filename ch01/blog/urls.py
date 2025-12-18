@@ -9,6 +9,9 @@ urlpatterns = [
     # Example: /blog/post/ (same as /blog/)
     re_path(r'^post/(?P<slug>[-\w]+)/$', views.PostDV.as_view(), name='post_detail'),
 
+    # Example: /blog/archive/
+    path('archive/', views.PostAV.as_view(), name='post_archive'),
+
     # Example: /blog/archive/2019/
     path('archive/<int:year>/', views.PostYAV.as_view(), name='post_year_archive'),
 
