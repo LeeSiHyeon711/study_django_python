@@ -131,3 +131,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TAGGIT_CASE_INSENSITIVE = True
 TAGGIT_LIMIT = 50
+
+# Disqus settings
+DISQUS_SHORTNAME = 'django-study'
+DISQUS_MY_DOMAIN = 'https://127.0.0.1:8000'
