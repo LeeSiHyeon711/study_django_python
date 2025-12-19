@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'taggit.apps.TaggitAppConfig',
     'taggit_templatetags2',
     'photo.apps.PhotoConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,7 @@ TAGGIT_LIMIT = 50
 # Disqus settings
 DISQUS_SHORTNAME = 'django-study'
 DISQUS_MY_DOMAIN = 'https://127.0.0.1:8000'
+
+# Login settings
+# LOGIN_URL = '/account/logiin/'
+LOGIN_REDIRECT_URL = '/'

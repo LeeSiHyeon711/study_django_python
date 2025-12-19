@@ -42,9 +42,33 @@
                 </li>
             </ul>
 
-            <!-- <form class="form-inline d-flex my-2" action="" method="post">{% csrf_token %}
+            <form class="form-inline d-flex my-2" action="" method="post">{% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="global search" name="search_word">
-            </form> -->
+            </form>
+            <ul class="navbar-nav ml-5 mr-5">
+                <li class="nav-item dropdown mx-1 btn btn-outline-dark text-white">
+                    {% if user.is_active %}
+                    <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>&ensp;{% firstof user.get_short_name user.get_username %}&ensp;
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <form method="post" action="{% url 'logout' %}" class="d-inline w-100">
+                            {% csrf_token %}
+                            <button type="submit" class="dropdown-item border-0 bg-transparent w-100 text-start">Logout</button>
+                        </form>
+                        <a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a>
+                    </div>
+                    {% else %}
+                    <a class="nav-link dropdown-toggle text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user"></i>&ensp;Anonymous&ensp;
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                        <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                    </div>
+                    {% endif %}
+                </li>
+            </ul>
             </div>
         </nav>
 

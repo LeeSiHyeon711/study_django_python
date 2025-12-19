@@ -22,6 +22,7 @@ from mysite.views import HomeView
 
 from django.conf.urls.static import static
 from django.conf import settings
+from mysite.views import UserCreateView, UserCreateDoneTV
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,9 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('', HomeView.as_view(), name='home'),
     path('photo/', include('photo.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register/', UserCreateView.as_view(), name='register'),
+    path('accounts/register/done/', UserCreateDoneTV.as_view(), name='register_done'),
 
     # # class-based views
     # path('bookmark/', BookmarkLV.as_view(), name='index'),
