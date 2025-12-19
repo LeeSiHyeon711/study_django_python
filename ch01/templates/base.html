@@ -27,7 +27,7 @@
                     <a class="nav-link btn btn-outline-dark text-white" href="{% url 'blog:index' %}">Blog</a>
                 </li>
                 <li class="nav-item me-2">
-                    <a class="nav-link btn btn-outline-dark text-white" href="#">Photo</a>
+                    <a class="nav-link btn btn-outline-dark text-white" href="{% url 'photo:index' %}">Photo</a>
                 </li>
                 <li class="nav-item dropdown me-2">
                     <a class="nav-link dropdown-toggle btn btn-outline-dark text-white" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,15 +36,15 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{% url 'blog:post_archive' %}">Post Archive</a>
-                    <a class="dropdown-item" href="#">Search</a>
+                    <a class="dropdown-item" href="{% url 'blog:post_archive' %}">Archive</a>
+                    <a class="dropdown-item" href="{% url 'blog:search' %}">Search</a>
                 </div>
                 </li>
             </ul>
 
-            <form class="form-inline d-flex my-2" action="" method="post">{% csrf_token %}
+            <!-- <form class="form-inline d-flex my-2" action="" method="post">{% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="global search" name="search_word">
-            </form>
+            </form> -->
             </div>
         </nav>
 

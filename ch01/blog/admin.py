@@ -1,5 +1,6 @@
 from django.contrib import admin
 from blog.models import Post
+from photo.models import Album, Photo
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -13,3 +14,16 @@ class PostAdmin(admin.ModelAdmin):
     
     def tag_list(self, obj):
         return ','.join(o.name for o in obj.tags.all())
+
+class PhotoInline(admin.StackedInline):
+    model = Photo
+    extra = 2
+
+@admin.register(Album)
+class AlbumAdmin(admin.ModelAdmin):
+    inlines = (PhotoInline,)
+    list_display = ('id', 'name', 'description')
+
+@admin.register(Photo)
+class PhotoAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'upload_dt')
